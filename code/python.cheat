@@ -10,3 +10,12 @@ snippet = args.snippet.lower()
 words = open('/usr/share/dict/words').readlines()
 print([word.strip() for word in words if snippet in
 word.lower()])
+
+# python env vars. os env vars. os lib
+!/usr/bin/env python3.6
+import os
+stage = os.getenv("STAGE", "dev").upper()
+output = f"We're running in {stage}"
+if stage.startswith("PROD"):
+ output = "DANGER!!! - " + output
+print(output)
